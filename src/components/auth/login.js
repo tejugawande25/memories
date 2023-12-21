@@ -16,12 +16,12 @@ function Login() {
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
-        <button>Login</button>
+        <button>LOGIN</button>
         <a id="forgot-password" href="google.com">
           Forgot Password?
         </a>
         <div className="or">
-          <span className="or-span">Or</span>
+          <span className="or-span">OR</span>
           <div className="icons">
           <div className="icon google-icon" >
             <FontAwesomeIcon icon={faGoogle} color="blue" />

@@ -5,5 +5,15 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+.dash-container .card img{
+    height: 300px;
+    width:700px ;
+    position: absolute;
+    right: 0;
 
+
+}
+.dash-container .card img:hover{
+    opacity: 1;
 }
