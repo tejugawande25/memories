@@ -33,9 +33,8 @@ input[type= text],input[type= password]{
     padding: 5px;
 }
 input[type= checkbox]{
-   height: 20px;
-   width: 20px;
-   margin-top: 10px;
+   height: 25px;
+   width: 15px;
 }
 button{
     margin-top: 10px;
@@ -45,7 +44,7 @@ button{
     border: none                                                                                                                                                                                                                                                                                                             ;
 }
 #check-box{
-    font-size: 13px;
+    font-size: 16px;
 }
 #forgot-password{
     text-align: right;
@@ -56,6 +55,7 @@ button{
     display: flex;
     align-items: center;
     gap: 5px;
+    justify-content: start;
 }
 .or {
     width: 100%;

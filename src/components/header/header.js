@@ -1,11 +1,11 @@
 import React from "react";
-import "./header.css"
+import "./header.css";
 
-function Header(){
-    return(
-      <header>
-        <h1>Memories</h1>
-      </header>
-    );
+function Header() {
+  return (
+    <div className="header">
+      <h1>Memories</h1>
+    </div>
+  );
 }
 export default Header;
