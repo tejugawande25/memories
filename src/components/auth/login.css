@@ -26,7 +26,7 @@ h3{
     text-align: left;
     font-size: 30px;
 }
-input[type= text],input[type= password]{
+input[type= text],input[type= password], input[type=text]{
     text-align: start;
     font-size: 20px;
     border-radius: 5px;
@@ -47,6 +47,13 @@ button{
     border-radius: 4px;
     font-size: 15px;   
     font-weight: bold;                                                                                                                                                                                                                                                                                                      ;
+}
+button:hover{
+    background-color: #e0356b;
+    cursor: pointer;
+}
+#checkbox:hover{
+    cursor: pointer;
 }
 #check-box{
     font-size: 16px;
@@ -99,4 +106,13 @@ button{
 }
 .linkdin-icon{
     border: 3px solid #507abb;
+}
+.google-icon:hover{
+    cursor: pointer;
+}
+.facebook-icon:hover{
+    cursor: pointer;
+}
+.linkdin-icon:hover{
+    cursor: pointer;
 }
