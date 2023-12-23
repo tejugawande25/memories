@@ -5,13 +5,13 @@
     flex-direction: row;
 }
 .add-memories{
-    height: 300px;
+    height: 296px;
     width: 300px;
     border-radius: 4px;
     border: 2px solid black;
     display: flex;
     position: relative;
-    top: 80px;
+    top: 75px;
     left: 100px;
 }
 .card-container .card {
@@ -44,7 +44,7 @@
     font-size: 20px;
 }
 .memo-text{
-    padding: 100px;
+    padding: 115px;
 }
 .add-memories span{
     height: 20px;
@@ -55,4 +55,8 @@
     position: relative;
     top: 100px;
     left: 100px ;
+}
+.image-container img{
+    height: 200px;
+    width: 200px;
 }
