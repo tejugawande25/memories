@@ -2,7 +2,6 @@ import React from "react";
 import "./card.css"
 
 function Card(props) {
-    console.log(props)
   return (
     <>
         <div class="card">
