@@ -11,6 +11,7 @@ function Container() {
   const [memories, setMemories] = useState([]);
   const[title ,setTitle] = useState("");
   const[detail, setDetail] = useState("");
+console.table(memories);
 
   const handleImageClick = () => {
 
@@ -24,15 +25,20 @@ function Container() {
       },
     ]);
   };
-  const saveDetails = (index) =>{
-   setMemories([
-    ...memories,{
-        title:title,
-        detail:detail
-    }
-   ])
-  }
+  const saveDetails = (index,title,detail) =>{
+  let tempMemories = [...memories]
+    tempMemories[index].title = title;
+    tempMemories[index].detail = detail;
 
+    setMemories(tempMemories)
+
+  }
+  const deleteMemory = (index)=>{
+    console.log(index);
+    const tempMemories = [...memories];
+    tempMemories.splice(index,1)
+    setMemories(tempMemories)
+  }
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     console.log(file);
@@ -53,9 +59,7 @@ function Container() {
           ></input>
      </div>
           {memories.map((memory, index) => {
-            console.log(memory);
-            console.log(index);
-            return <Card memory={memory} saveDetails={saveDetails} title={title} detail={detail} setTitle={setTitle} setDetails={setDetail} index={index}/>;
+            return <Card key={`lksdjf-${index}`} deleteMemory={deleteMemory} memory={memory} saveDetails={saveDetails} index={index}/>;
           })}
         </div>
     </>

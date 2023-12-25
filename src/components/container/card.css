@@ -15,6 +15,7 @@
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     padding: 10px;
     border-radius: 10px;
+    position: relative;
 }
 .save-button, .add-detail{
     height: 40px;
@@ -33,3 +34,33 @@
 .add-detail{
     background-color: red;
 }
+.action-wrapper{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+   top:20px;
+   right: 20px;
+   gap: 2px;
+   visibility: hidden;
+}
+.card-wrapper:hover .action-wrapper{
+    visibility: visible;
+}
+
+.edit,.delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.edit:hover, .delete:hover{
+    background-color: rgb(33, 33, 33);
+    color: white;
+}
+
