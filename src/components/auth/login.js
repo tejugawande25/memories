@@ -27,7 +27,7 @@ function Login(props) {
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
-        <button>{props.islogin ? "LOGIN":"SIGNUP"}</button>
+        <button className="login-button">{props.islogin ? "LOGIN":"SIGNUP"}</button>
         <a id="forgot-password" href="google.com">
           {props.islogin ? "forget password":" "}
         </a>
