@@ -39,11 +39,11 @@ console.table(memories);
     tempMemories.splice(index,1)
     setMemories(tempMemories)
   }
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    console.log(file);
-    setImage(event.target.files[0]);
-  };
+  // const handleImageChange = (event) => {
+  //   const file = event.target.files[0];
+  //   console.log(file);
+  //   setImage(event.target.files[0]);
+  // };
   return (
     <>
       <div className="dash-container">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useRef, useState } from "react";
 import "./card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,18 @@ function Card({ memory, saveDetails, index, deleteMemory }) {
   const [title, setTitle] = useState();
   const [detail, setDetails] = useState();
   const [showMemoryDetails, setShowMemoryDetails] = useState();
+  const inputRef =useRef(null);
+  const [image , setImage] = useState();
+
+
+  const handleImgClick = ()=>{
+    inputRef.current.click();
+  }
+
+  const handleImgChange = (event) =>{
+    setImage(event.target.files[0]);
+  }
+
 
   return (
     <div className="card-wrapper">
@@ -30,11 +42,13 @@ deleteMemory(index)
           <FontAwesomeIcon icon={faTimesCircle} />
         </div>
       </div>
-      <div className="card-header">
+      <div className="card-header" onClick={handleImgClick} >
+        {image ? <img src ={URL.createObjectURL(image)} alt="" />:
         <img
           src="https://media.istockphoto.com/id/1382384282/photo/bangalore-or-bengaluru.jpg?s=612x612&w=0&k=20&c=6pxwL3JxNV2B_NZSLMZLhrSLqAbyCPlGuSZYKImpjKQ="
           alt="images"
-        ></img>
+        ></img>}
+        <input type="file" ref={inputRef} onChange={handleImgChange} style={{display:"none"}}/>
       </div>
       <div className="card-body">
         {showMemoryDetails ? (
