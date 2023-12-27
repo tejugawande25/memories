@@ -35,7 +35,9 @@ function Login(props) {
           <span className="or-span">OR</span>
           <div className="icons">
             <div className="icon google-icon">
+              <a href="https://www.google.com">
               <FontAwesomeIcon icon={faGoogle} color="blue" />
+              </a>
             </div>
             <div className="icon facebook-icon">
               <FontAwesomeIcon icon={faFacebook} color="#6189bc" />

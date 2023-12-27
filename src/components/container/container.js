@@ -11,7 +11,7 @@ function Container() {
   const [memories, setMemories] = useState([]);
   const[title ,setTitle] = useState("");
   const[detail, setDetail] = useState("");
-console.table(memories);
+  console.table(memories);
 
   const handleImageClick = () => {
 
@@ -25,11 +25,12 @@ console.table(memories);
       },
     ]);
   };
-  const saveDetails = (index,title,detail) =>{
+  const saveDetails = (index,title,detail,image) =>{
   let tempMemories = [...memories]
     tempMemories[index].title = title;
     tempMemories[index].detail = detail;
-
+    tempMemories[index].images = image;
+  
     setMemories(tempMemories)
 
   }
@@ -49,7 +50,7 @@ console.table(memories);
       <div className="dash-container">
         <div onClick={handleImageClick} className="add-memories">
         
-            <FontAwesomeIcon icon={faPlusSquare} color="black" size="2xl" />
+            <FontAwesomeIcon className =" plus-icon"icon={faPlusSquare} color="black" size="2xl" />
   
           <input
             type="file"
@@ -57,9 +58,12 @@ console.table(memories);
             // onChange={handleImageChange}
             style={{ display: "none" }}
           ></input>
+          <div className="memory-name"><h1>Add Memory!</h1>
+          </div>
      </div>
+      
           {memories.map((memory, index) => {
-            return <Card key={`lksdjf-${index}`} deleteMemory={deleteMemory} memory={memory} saveDetails={saveDetails} index={index}/>;
+            return <Card key={`lksdjf-${index}`} deleteMemory={deleteMemory} memory={memory} saveDetails={saveDetails} index={index} />;
           })}
         </div>
     </>

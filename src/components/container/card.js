@@ -6,12 +6,12 @@ import {
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
 
-function Card({ memory, saveDetails, index, deleteMemory }) {
+function Card({ memory, saveDetails, index, deleteMemory}) {
   const [toggleDetails, setToggleDetails] = useState(false);
   const [title, setTitle] = useState();
   const [detail, setDetails] = useState();
   const [showMemoryDetails, setShowMemoryDetails] = useState();
-  const inputRef =useRef(null);
+  const inputRef = useRef(null);
   const [image , setImage] = useState();
 
 
@@ -22,7 +22,7 @@ function Card({ memory, saveDetails, index, deleteMemory }) {
   const handleImgChange = (event) =>{
     setImage(event.target.files[0]);
   }
-
+  
 
   return (
     <div className="card-wrapper">
@@ -78,7 +78,7 @@ deleteMemory(index)
             <button
               className="save-button"
               onClick={() => {
-                saveDetails(index, title, detail);
+                saveDetails(index, title, detail,image);
                 setShowMemoryDetails(true);
               }}
             >

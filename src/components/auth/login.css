@@ -5,8 +5,8 @@
     width: 100%;
     height: 100vh;
     border: 1px solid black;
-    background-color: #36669d;
-    background-image: linear-gradient(315deg, #36669d 0%, #d3d3d3 74%);
+    background-color: #5078a6;
+    background-image: linear-gradient(315deg, #36669d 10%, #8a8686 100%);
 
 }
 .container{ 

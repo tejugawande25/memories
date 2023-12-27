@@ -12,10 +12,11 @@
 }
 .card-wrapper{
     width: 280px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;;
     padding: 10px;
     border-radius: 10px;
     position: relative;
+    margin: 55px 65px;
 }
 .save-button, .add-detail{
     height: 40px;
@@ -32,7 +33,7 @@
 }
 
 .add-detail{
-    background-color: red;
+    background-color:  #e0356b;
 }
 .action-wrapper{
     display: flex;
