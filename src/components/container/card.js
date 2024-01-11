@@ -1,4 +1,4 @@
-import React, {useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,23 +6,21 @@ import {
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
 
-function Card({ memory, saveDetails, index, deleteMemory}) {
+function Card({ memory, saveDetails, index, deleteMemory }) {
   const [toggleDetails, setToggleDetails] = useState(false);
   const [title, setTitle] = useState();
   const [detail, setDetails] = useState();
   const [showMemoryDetails, setShowMemoryDetails] = useState();
   const inputRef = useRef(null);
-  const [image , setImage] = useState();
+  const [image, setImage] = useState();
 
-
-  const handleImgClick = ()=>{
+  const handleImgClick = () => {
     inputRef.current.click();
-  }
+  };
 
-  const handleImgChange = (event) =>{
+  const handleImgChange = (event) => {
     setImage(event.target.files[0]);
-  }
-  
+  };
 
   return (
     <div className="card-wrapper">
@@ -36,19 +34,30 @@ function Card({ memory, saveDetails, index, deleteMemory}) {
           <FontAwesomeIcon icon={faPenToSquare} />
         </div>
 
-        <div onClick={()=>{
-deleteMemory(index)
-        }} className="delete">
+        <div
+          onClick={() => {
+            deleteMemory(index);
+          }}
+          className="delete"
+        >
           <FontAwesomeIcon icon={faTimesCircle} />
         </div>
       </div>
-      <div className="card-header" onClick={handleImgClick} >
-        {image ? <img src ={URL.createObjectURL(image)} alt="" />:
-        <img
-          src="https://media.istockphoto.com/id/1382384282/photo/bangalore-or-bengaluru.jpg?s=612x612&w=0&k=20&c=6pxwL3JxNV2B_NZSLMZLhrSLqAbyCPlGuSZYKImpjKQ="
-          alt="images"
-        ></img>}
-        <input type="file" ref={inputRef} onChange={handleImgChange} style={{display:"none"}}/>
+      <div className="card-header" onClick={handleImgClick}>
+        {image ? (
+          <img src={URL.createObjectURL(image)} alt="" />
+        ) : (
+          <img
+            src="https://media.istockphoto.com/id/1382384282/photo/bangalore-or-bengaluru.jpg?s=612x612&w=0&k=20&c=6pxwL3JxNV2B_NZSLMZLhrSLqAbyCPlGuSZYKImpjKQ="
+            alt="images"
+          ></img>
+        )}
+        <input
+          type="file"
+          ref={inputRef}
+          onChange={handleImgChange}
+          style={{ display: "none" }}
+        />
       </div>
       <div className="card-body">
         {showMemoryDetails ? (
@@ -78,7 +87,7 @@ deleteMemory(index)
             <button
               className="save-button"
               onClick={() => {
-                saveDetails(index, title, detail,image);
+                saveDetails(index, title, detail, image);
                 setShowMemoryDetails(true);
               }}
             >

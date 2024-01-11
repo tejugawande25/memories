@@ -5,6 +5,8 @@ import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 import { useRef, useState } from "react";
 import Card from "./card";
 
+
+
 function Container() {
   const inputRef = useRef(null);
   const [image, setImage] = useState("");
@@ -51,7 +53,7 @@ function Container() {
         <div onClick={handleImageClick} className="add-memories">
         
             <FontAwesomeIcon className =" plus-icon"icon={faPlusSquare} color="black" size="2xl" />
-  
+         
           <input
             type="file"
             ref={inputRef}

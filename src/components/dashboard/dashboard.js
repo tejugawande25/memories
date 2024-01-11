@@ -6,10 +6,8 @@ import Container from "../container/container";
 function Dashboard(){
     return(
        <>
-      
        <Header />
-       <Container  />
-    
+       <Container />
        </>
     );
 }

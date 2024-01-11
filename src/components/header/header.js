@@ -1,6 +1,7 @@
 import React from "react";
 import "./header.css";
 
+
 function Header() {
   return (
     <div className="header">
@@ -10,7 +11,7 @@ function Header() {
           <li className="tabs-li"><a href="login" >Login</a></li>
           <li className="tabs-li"><a href="signup" >Signup</a></li>
           <li className="tabs-li"><a href="home" >Home</a></li>
-          <li className="tabs-li"><a href="home" >Settings</a></li>
+          <li className="tabs-li"><a >Settings</a></li>
         </ul>
       </nav>
     </div>

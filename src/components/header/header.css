@@ -16,6 +16,7 @@
 .tabs-li a{
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 .tabs-li a:hover{
     color: rgb(210, 203, 203);
