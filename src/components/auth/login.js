@@ -6,8 +6,21 @@ import {
   faGoogle,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import axios from "axios";
+
+
 
 function Login(props) {
+
+  const handleLogin =() =>{
+    axios.get(
+      "http://localhost:8000/login"
+    ).then((data) =>{
+     console.log(data);
+    }).catch((err) =>{
+console.log(err);
+    })
+  }
   console.log(props);
   return (
     <div className="login-wrapper">
@@ -27,7 +40,7 @@ function Login(props) {
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
-        <button className="login-button">{props.islogin ? "LOGIN":"SIGNUP"}</button>
+        <button className="login-button" onClick={handleLogin}>{props.islogin ? "LOGIN":"SIGNUP"}</button>
         <a id="forgot-password" href="google.com">
           {props.islogin ? "forget password":" "}
         </a>
