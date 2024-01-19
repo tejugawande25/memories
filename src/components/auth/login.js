@@ -19,7 +19,7 @@ function Login(props) {
         console.log(err);
       });
   };
-  //this is for just for testing
+  
   console.log(props);
   return (
     <div className="login-wrapper">
