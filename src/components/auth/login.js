@@ -8,30 +8,33 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 
-
-
 function Login(props) {
-
-  const handleLogin =() =>{
-    axios.get(
-      "http://localhost:8000/login"
-    ).then((data) =>{
-     console.log(data);
-    }).catch((err) =>{
-console.log(err);
-    })
-  }
+  const handleLogin = () => {
+    axios
+      .get("http://localhost:8000/login")
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  //this is for just for testing
   console.log(props);
   return (
     <div className="login-wrapper">
       <div className="container">
         <h3> {props.islogin ? "LOGIN" : "SIGNUP"}</h3>
-        { props.islogin ? " ":
-        <div>
-        <label>Full Name</label><br></br><br></br>
-        <input type="text" name="fullname" id="fullname"></input>
-        </div>
-        }
+        {props.islogin ? (
+          " "
+        ) : (
+          <div>
+            <label>Full Name</label>
+            <br></br>
+            <br></br>
+            <input type="text" name="fullname" id="fullname"></input>
+          </div>
+        )}
         <label>Username</label>
         <input type="text" name="username" id="username"></input>
         <label>Password</label>
@@ -40,16 +43,18 @@ console.log(err);
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
-        <button className="login-button" onClick={handleLogin}>{props.islogin ? "LOGIN":"SIGNUP"}</button>
+        <button className="login-button" onClick={handleLogin}>
+          {props.islogin ? "LOGIN" : "SIGNUP"}
+        </button>
         <a id="forgot-password" href="google.com">
-          {props.islogin ? "forget password":" "}
+          {props.islogin ? "forget password" : " "}
         </a>
         <div className="or">
           <span className="or-span">OR</span>
           <div className="icons">
             <div className="icon google-icon">
               <a href="https://www.google.com">
-              <FontAwesomeIcon icon={faGoogle} color="blue" />
+                <FontAwesomeIcon icon={faGoogle} color="blue" />
               </a>
             </div>
             <div className="icon facebook-icon">
