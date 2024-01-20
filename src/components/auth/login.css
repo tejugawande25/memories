@@ -1,0 +1,93 @@
+*{
+   margin: 0;
+   padding: 0;
+}
+body{
+    background-color: #6d9ac4;
+}
+.login-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    border: 1px solid black;
+}
+.container{ 
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    padding: 50px;
+    border: 1px solid black;
+    background-color: white;
+}
+h3{
+    text-align: left;
+    font-size: 30px;
+}
+input[type= text],input[type= password]{
+    text-align: start;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+input[type= checkbox]{
+   height: 20px;
+   width: 20px;
+   margin-top: 10px;
+}
+button{
+    margin-top: 10px;
+    width: 100%;
+    background-color: #e85785;
+    color: white;
+    border: none                                                                                                                                                                                                                                                                                                             ;
+}
+#check-box{
+    font-size: 13px;
+}
+#forgot-password{
+    text-align: right;
+    font-size: 12px;
+    right: 0;
+}
+.remember-me{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.or {
+    width: 100%;
+    border-top: 1px solid black;
+    position: relative;
+    text-align: center;
+}
+.or-span{
+    position: absolute;
+    top: -12px;
+    border: 1px solid red;
+}
+.icons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid red;
+    border-radius: 50%;
+    padding: 10px;
+}
+.google-icon{
+    border: 3px solid blue;
+}
+.facebook-icon{
+    border: 3px solid #6189bc;
+}
+.linkdin-icon{
+    border: 3px solid #507abb;
+}
