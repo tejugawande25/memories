@@ -16,7 +16,6 @@ function App() {
       <Route element={ <Login islogin={false}/>} path='/signup' />
       <Route element={ <Dashboard />} path='/dashboard' />
       <Route element={ <Home />} path='/' />
-
     </Routes>
     </BrowserRouter>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,19 +8,44 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 
+
 function Login(props) {
-  const handleLogin = () => {
+
+  const [signupUser, setSignupUser] = useState({
+    fullname:"",
+    username: "",
+    password: "",
+  });
+
+  const handleInput = (e) => {
+    // console.log(e.target.value);
+    // console.log(e.target.name);
+    let name = e.target.name;
+    let value = e.target.value;
+
+    setSignupUser({
+      ...signupUser,
+      [name] : value,
+    });
+  };
+
+  console.log(signupUser);
+
+  const handleSignUp = () => {
     axios
-      .get("http://localhost:8000/login")
+      .post("http://localhost:8000/user/signup",{
+        signupUser:signupUser
+      })
       .then((data) => {
         console.log(data);
       })
       .catch((err) => {
         console.log(err);
+        console.log("Hii")
       });
   };
-  
-  console.log(props);
+
+  // console.log(props);
   return (
     <div className="login-wrapper">
       <div className="container">
@@ -32,18 +57,31 @@ function Login(props) {
             <label>Full Name</label>
             <br></br>
             <br></br>
-            <input type="text" name="fullname" id="fullname"></input>
+            <input type="text"  id="fullname" name="fullname" value={signupUser.fullname} onChange={handleInput}></input>
           </div>
         )}
+
         <label>Username</label>
-        <input type="text" name="username" id="username"></input>
+        <input
+          type="text"
+          name="username"
+          value={signupUser.username}
+          onChange={handleInput}
+        ></input>
+
         <label>Password</label>
-        <input type="password" name="password" id="password"></input>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          value={signupUser.password}
+          onChange={handleInput}
+        ></input>
         <div className="remember-me">
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
-        <button className="login-button" onClick={handleLogin}>
+        <button className="login-button" onClick={handleSignUp}>
           {props.islogin ? "LOGIN" : "SIGNUP"}
         </button>
         <a id="forgot-password" href="google.com">
