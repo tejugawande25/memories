@@ -20,6 +20,7 @@ function Card({ memory, saveDetails, index, deleteMemory }) {
 
   const handleImgChange = (event) => {
     setImage(event.target.files[0]);
+    // console.log(event.target.files [0]);
   };
 
   return (
