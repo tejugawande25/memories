@@ -7,6 +7,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
+import {Navigate} from "react-router-dom";
 
 
 function Login(props) {
@@ -16,6 +17,12 @@ function Login(props) {
     username: "",
     password: "",
   });
+
+  const[loginUser, setLoginUser] = useState({
+    fullname:"",
+    username:"",
+    password:""
+  })
 
   const handleInput = (e) => {
     // console.log(e.target.value);
@@ -27,23 +34,64 @@ function Login(props) {
       ...signupUser,
       [name] : value,
     });
+    setLoginUser({
+      ...loginUser,
+      [name]:value,
+    })
   };
 
   console.log(signupUser);
 
-  const handleSignUp = () => {
+  // const handleLogin =() =>{
+  //   axios
+  //   .post("http://localhost:8000/user/login",{
+  //     loginUser:loginUser
+  //   })
+  //   .then((data) =>{
+  //     console.log(data);
+  //   })
+  //   .catch((err) =>{
+  //     console.log(err);
+  //     console.log("bye");
+  //   })
+   
+  // };
+
+  const handleLogin = () =>{
     axios
-      .post("http://localhost:8000/user/signup",{
-        signupUser:signupUser
-      })
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-        console.log("Hii")
-      });
-  };
+    .post("http://localhost:8000/user/login",{
+      loginUser:loginUser
+    })
+    .then((data) =>{
+      console.log(data);
+      
+    })
+    .catch((error) =>{
+      console.log(error);
+    })
+  }
+
+
+  const handleSignUp =() =>{
+    axios
+    .post("http://localhost:8000/user/signup",{
+      signupUser:signupUser
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      console.log("Hii")
+    })
+  }
+
+
+  // const handleClick = () => {
+  //   props.islogin ?
+  //   handleLogin() : handleSignUp()
+
+  // };
 
   // console.log(props);
   return (
@@ -71,7 +119,7 @@ function Login(props) {
 
         <label>Password</label>
         <input
-          type="password"
+          type="text"
           name="password"
           id="password"
           value={signupUser.password}
@@ -81,9 +129,12 @@ function Login(props) {
           <input type="checkbox" id="checkbox"></input>
           <label id="check-box"> Remember Me!</label>
         </div>
+        {props.islogin ? <button className="login-button" onClick={handleLogin}>
+          LOGIN
+        </button> :
         <button className="login-button" onClick={handleSignUp}>
-          {props.islogin ? "LOGIN" : "SIGNUP"}
-        </button>
+        SIGNUP
+      </button>}
         <a id="forgot-password" href="google.com">
           {props.islogin ? "forget password" : " "}
         </a>
