@@ -7,10 +7,13 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
-import {Navigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+const Swal = require('sweetalert2')
 
 
 function Login(props) {
+
+  const navigate = useNavigate();
 
   const [signupUser, setSignupUser] = useState({
     fullname:"",
@@ -42,20 +45,18 @@ function Login(props) {
 
   console.log(signupUser);
 
-  // const handleLogin =() =>{
-  //   axios
-  //   .post("http://localhost:8000/user/login",{
-  //     loginUser:loginUser
-  //   })
-  //   .then((data) =>{
-  //     console.log(data);
-  //   })
-  //   .catch((err) =>{
-  //     console.log(err);
-  //     console.log("bye");
-  //   })
-   
-  // };
+  const handleLoginAlert = () =>{
+    setTimeout(() => {
+      navigate('/dashboard')
+    }, 2000);
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "You are logged in successfully!",
+      showConfirmButton: false,
+      timer: 2000
+    });  
+  }
 
   const handleLogin = () =>{
     axios
@@ -64,7 +65,7 @@ function Login(props) {
     })
     .then((data) =>{
       console.log(data);
-      
+      handleLoginAlert();   
     })
     .catch((error) =>{
       console.log(error);
@@ -79,6 +80,7 @@ function Login(props) {
     })
     .then((data) => {
       console.log(data);
+      navigate('/dashboard')
     })
     .catch((err) => {
       console.log(err);
@@ -87,11 +89,6 @@ function Login(props) {
   }
 
 
-  // const handleClick = () => {
-  //   props.islogin ?
-  //   handleLogin() : handleSignUp()
-
-  // };
 
   // console.log(props);
   return (
