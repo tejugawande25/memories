@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 import { useRef, useState } from "react";
 import Card from "./card";
+import axios from "axios";
 
 
 
@@ -14,6 +15,25 @@ function Container() {
   const[title ,setTitle] = useState("");
   const[detail, setDetail] = useState("");
   console.table(memories);
+
+ 
+  const handleSetMemory =() =>{
+    axios
+    .post("http://localhost:8000/user/memories",{
+      memories:memories
+    })
+    .then((data) =>{
+      console.log(data);
+    })
+    .catch((error) =>{
+      console.log(error);
+    })
+  }
+
+  
+  
+
+
 
   const handleImageClick = () => {
 
@@ -27,6 +47,7 @@ function Container() {
       },
     ]);
   };
+
   const saveDetails = (index,title,detail,image) =>{
   let tempMemories = [...memories]
     tempMemories[index].title = title;
@@ -34,7 +55,7 @@ function Container() {
     tempMemories[index].images = image;
   
     setMemories(tempMemories)
-
+    handleSetMemory();
   }
   const deleteMemory = (index)=>{
     console.log(index);
@@ -65,7 +86,7 @@ function Container() {
      </div>
       
           {memories.map((memory, index) => {
-            return <Card key={`lksdjf-${index}`} deleteMemory={deleteMemory} memory={memory} saveDetails={saveDetails} index={index} />;
+            return <Card key={`lksdjf-${index}`} deleteMemory={deleteMemory} memory={memory} saveDetails={saveDetails} index={index}  />;
           })}
         </div>
     </>

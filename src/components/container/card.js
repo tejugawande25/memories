@@ -6,7 +6,7 @@ import {
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
 
-function Card({ memory, saveDetails, index, deleteMemory }) {
+function Card({ memory, saveDetails, index, deleteMemory}) {
   const [toggleDetails, setToggleDetails] = useState(false);
   const [title, setTitle] = useState();
   const [detail, setDetails] = useState();
