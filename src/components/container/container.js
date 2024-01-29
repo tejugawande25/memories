@@ -20,7 +20,7 @@ function Container() {
   const handleSetMemory =() =>{
     axios
     .post("http://localhost:8000/user/memories",{
-      memories:memories
+      memories:memories,
     })
     .then((data) =>{
       console.log(data);
