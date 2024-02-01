@@ -65,7 +65,7 @@ function Login(props) {
     })
     .then((data) =>{
       console.log(data);
-      handleLoginAlert();   
+      // handleLoginAlert();   
     })
     .catch((error) =>{
       console.log(error);

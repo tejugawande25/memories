@@ -5,6 +5,7 @@ import {
   faPenToSquare,
   faTimesCircle,
 } from "@fortawesome/free-regular-svg-icons";
+import axios from "axios";
 
 function Card({ memory, saveDetails, index, deleteMemory}) {
   const [toggleDetails, setToggleDetails] = useState(false);
@@ -18,10 +19,27 @@ function Card({ memory, saveDetails, index, deleteMemory}) {
     inputRef.current.click();
   };
 
+
   const handleImgChange = (event) => {
-    setImage(event.target.files[0]);
+    const file = event.target.files[0];
+    // setImage(event.target.files[0]);
+    setImage(file);
     console.log(event.target.files [0]);
+    // previewFiles(file);
   };
+
+  const handleImageSave =() =>{
+    axios
+    .post("http://localhost:8000/user/image",{
+      image:image
+    })
+    .then((data) =>{
+      console.log(data);
+    })
+    .catch((error) =>{
+      console.log(error);
+    })
+  }
 
   return (
     <div className="card-wrapper">
@@ -100,6 +118,7 @@ function Card({ memory, saveDetails, index, deleteMemory}) {
             className="add-detail"
             onClick={() => {
               setToggleDetails(true);
+              handleImageSave();
             }}
           >
             Add Details
